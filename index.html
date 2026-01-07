@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Office Management System</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url(https://i.pinimg.com/1200x/a4/9d/fc/a49dfcf6809c609150891343c5cba36b.jpg) center/cover no-repeat;
+    }
+
+    .container {
+      width: 350px
+    }
+
+    .form-box {
+      background: #d3e5d349;
+      border-radius: 15px;
+      padding: 40px 30px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, .3)
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #fff
+    }
+
+    .input-box {
+      margin: 15px 0
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #537C36;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px
+    }
+
+    .btn-face {
+      background: #4285f4
+    }
+
+    .btn-register-face {
+      background: #9c27b0;
+      font-size: .9em
+    }
+
+    .error-msg {
+      color: red;
+      font-size: 14px;
+      display: none
+    }
+
+    .success-msg {
+      color: green;
+      font-size: 14px;
+      display: none
+    }
+
+    /* MODAL */
+    .face-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .85);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999
+    }
+
+    .face-modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 420px;
+      text-align: center
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      background: #000;
+      border-radius: 8px
+    }
+
+    .face-controls {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 15px
+    }
+
+    .face-btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer
+    }
+
+    .capture-btn {
+      background: #4285f4
+    }
+
+    .cancel-btn {
+      background: #f44336
+    }
+
+    .register-btn {
+      background: #9c27b0
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="form-box">
+      <h2>IDEAL-MSD</h2>
+
+      <form id="loginForm">
+        <div class="input-box">
+          <input id="username" placeholder="Username">
+        </div>
+        <div class="input-box">
+          <input type="password" id="password" placeholder="Password">
+        </div>
+        <div class="error-msg" id="loginError">Invalid login</div>
+        <button class="btn">Login with Credentials</button>
+      </form>
+
+      <button class="btn btn-face" id="faceLoginBtn">Login with Face</button>
+      <button class="btn btn-register-face" id="registerFaceBtn">Register Face</button>
+
+      <div class="success-msg" id="faceSuccessMsg"></div>
+    </div>
+  </div>
+
+  <!-- FACE MODAL -->
+  <div class="face-modal" id="faceModal">
+    <div class="face-modal-content">
+      <h3>Face Recognition</h3>
+
+      <video id="video" autoplay muted playsinline></video>
+
+      <div id="faceStatus" style="margin-top:10px"></div>
+
+      <div class="face-controls">
+        <button class="face-btn capture-btn" id="captureBtn">Capture</button>
+        <button class="face-btn cancel-btn" id="cancelBtn">Cancel</button>
+        <button class="face-btn register-btn" id="registerBtn" style="display:none">Register</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const loginForm = document.getElementById("loginForm");
+      const username = document.getElementById("username");
+      const password = document.getElementById("password");
+      const loginError = document.getElementById("loginError");
+
+      const faceLoginBtn = document.getElementById("faceLoginBtn");
+      const registerFaceBtn = document.getElementById("registerFaceBtn");
+      const faceModal = document.getElementById("faceModal");
+      const video = document.getElementById("video");
+      const captureBtn = document.getElementById("captureBtn");
+      const cancelBtn = document.getElementById("cancelBtn");
+      const registerBtn = document.getElementById("registerBtn");
+      const faceStatus = document.getElementById("faceStatus");
+      const faceSuccessMsg = document.getElementById("faceSuccessMsg");
+
+      let stream = null;
+      let mode = "login";
+
+      /* 🔥 GUARANTEED CAMERA START */
+      async function openCamera() {
+        try {
+          if (stream) {
+            stream.getTracks().forEach(t => t.stop());
+            stream = null;
+          }
+
+          faceModal.style.display = "flex"; // MUST be visible first
+
+          await new Promise(r => setTimeout(r, 50)); // timing fix
+
+          stream = await navigator.mediaDevices.getUserMedia({
+            video: { facingMode: "user" },
+            audio: false
+          });
+
+          video.srcObject = stream;
+          video.muted = true;
+          video.playsInline = true;
+
+          await video.play(); // 🔑 CRITICAL
+
+          faceStatus.textContent = "Camera active";
+          faceStatus.style.color = "green";
+
+        } catch (err) {
+          console.error(err);
+          faceStatus.textContent = "Camera blocked. Allow permission & reload.";
+          faceStatus.style.color = "red";
+        }
+      }
+
+      function closeCamera() {
+        if (stream) {
+          stream.getTracks().forEach(t => t.stop());
+        }
+        stream = null;
+        video.srcObject = null;
+      }
+
+      /* NORMAL LOGIN */
+      loginForm.onsubmit = e => {
+        e.preventDefault();
+        if (!username.value || !password.value) {
+          loginError.style.display = "block"; return;
+        }
+        localStorage.setItem("sessionActive", "true");
+        location.href = "landing.html";
+      };
+
+      /* FACE LOGIN */
+      faceLoginBtn.onclick = () => {
+        mode = "login";
+        registerBtn.style.display = "none";
+        openCamera();
+      };
+
+      registerFaceBtn.onclick = () => {
+        if (!username.value) { alert("Enter username first"); return; }
+        mode = "register";
+        registerBtn.style.display = "block";
+        openCamera();
+      };
+
+      captureBtn.onclick = () => {
+        if (mode === "login") {
+          faceStatus.textContent = "Face recognized ✔";
+          faceSuccessMsg.textContent = "Face Login Successful";
+          faceSuccessMsg.style.display = "block";
+          closeCamera();
+          faceModal.style.display = "none";
+          setTimeout(() => location.href = "landing.html", 1000);
+        }
+      };
+      
+      registerBtn.onclick = () => {
+        let faces = JSON.parse(localStorage.getItem("faces") || "[]");
+        faces = [...faces.filter(f => f.username !== username.value),
+        { username: username.value, date: new Date() }];
+        localStorage.setItem("faces", JSON.stringify(faces));
+        faceStatus.textContent = "Face registered ✔";
+        faceStatus.style.color = "green";
+      };
+
+      cancelBtn.onclick = () => {
+        closeCamera();
+        faceModal.style.display = "none";
+        faceStatus.textContent = "";
+      };
+
+    });
+  </script>
+</body>
+</html>

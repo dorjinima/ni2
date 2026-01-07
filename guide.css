@@ -1,0 +1,216 @@
+/* GUIDE SECTION BASE */
+#guideSection {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  max-width: 1700px;
+  margin: 0 auto 40px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Header: Search + Add */
+.guide-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.guidebhty {
+  padding: 0 18px;
+  height: 40px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: #537c36;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.guidebhty:hover {
+  background-color: #45692b;
+}
+
+/* Divider */
+.guide-divider {
+  border: 0;
+  height: 1px;
+  background-color: #537c36;
+  margin: 20px 0;
+}
+
+/* GUIDE FORM */
+#guideForm.guide-bht {
+  background: #fff;
+  padding: 20px 24px;
+  border-radius: 10px;
+  display: none;
+  font-size: 14px;
+  font-weight: 600;
+  box-sizing: border-box;
+}
+#guideForm input,
+#guideForm select {
+  width: 100%;
+  height: 35px !important;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  box-sizing: border-box;
+}
+#guideForm label {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+/* Grid Layouts — updated to 5 inputs per line */
+.guide-grid,
+.four-in-line,
+.bank-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 INPUTS IN ONE ROW */
+  gap: 18px;
+  margin-bottom: 18px;
+}
+.guide-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Bank Details */
+.bank-details {
+  margin-top: 12px;
+  border: 1px solid #e0e0e0;
+  padding: 12px;
+  border-radius: 6px;
+}
+.bank-details legend {
+  padding: 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Form Buttons */
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 14px;
+}
+.cancel-btn,
+.save-btn {
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  min-width: 120px;
+}
+.cancel-btn {
+  background-color: #f44336;
+  color: #fff;
+}
+.cancel-btn:hover {
+  background-color: #d32f2f;
+}
+.save-btn {
+  background-color: #537c36;
+  color: #fff;
+}
+.save-btn:hover {
+  background-color: #45692b;
+}
+
+/* GUIDE TABLE */
+.guide-table-container {
+  margin-top: 30px;
+  overflow-x: auto;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.guide-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.guide-table th,
+.guide-table td {
+  border: none;
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.guide-table th {
+  background-color: #f9f9f9;
+  color: #537c36;
+  font-weight: 600;
+}
+.guide-table tbody tr:hover {
+  background-color: #f1f9f6;
+}
+.guide-table td.si-no,
+.guide-table th:first-child {
+  width: 50px;
+  text-align: center;
+  padding-left: 0;
+}
+
+/* Action Buttons */
+.guide-table td button.edit-btn,
+.guide-table td button.delete-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.guide-table td button.delete-btn {
+  color: red;
+}
+
+/* Pagination */
+.nextandpreviousbht {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+.nextandpreviousbht .btn {
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .guide-grid,
+  .four-in-line,
+  .bank-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .guide-grid,
+  .four-in-line,
+  .bank-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

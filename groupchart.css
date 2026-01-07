@@ -1,0 +1,601 @@
+/* ==============================
+   GROUP CHART SECTION
+============================== */
+
+/* ===== Header Text ===== */
+.welcome-text h2 {
+  font-size: 20px;
+  color: #ffffff;
+}
+.welcome-text p {
+  font-size: 14px;
+  color: #ffffff;
+  margin-top: 2px;
+}
+.header-right h3 {
+  font-size: 20px;
+  color: #ffffff;
+}
+.header-right p {
+  font-size: 14px;
+  color: #fff9f9;
+  margin-top: 2px;
+}
+
+hr {
+  margin: 15px 0;
+  border: 1px solid #e5e5e5;
+}
+
+/* ==============================
+   CONTROLS (SEARCH + ADD BUTTON)
+============================== */
+.filegroup-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.search-box {
+  display: flex;
+  gap: 10px;
+}
+
+.search-box input {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  min-width: 220px;
+}
+
+.btn-primary {
+  background: #537c36;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.btn-primary:hover {
+  background: #537c36;
+}
+
+/* ==============================
+   FORM SECTIONS
+============================== */
+.filegroup-form {
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Top Fields (4 in one line) */
+.form-topfields {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.form-group2 label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #444;
+}
+
+.form-group2 input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Middle Fields (Cards for Pax / Arrival / Departure) */
+.form-middlefields {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: stretch;
+  margin-bottom: 20px;
+}
+
+.card,
+.card1 {
+  flex: 1;
+  background: #fafafa;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 200px;
+}
+
+.card-header {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: black;
+}
+
+/* Uniform Table for Pax, Arrival, Departure */
+.uniform-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  text-align: center;
+}
+
+.uniform-table th,
+.uniform-table td {
+  border: transparent;
+  padding: 4px 6px;
+}
+
+.uniform-table th {
+  background: #f1f1f1;
+  font-weight: 600;
+}
+
+.uniform-table td:first-child {
+  text-align: left;
+}
+
+/* ==============================
+   SCROLLABLE TABLE WITH STICKY COLUMNS
+============================== */
+.fixed-form-wrapper {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 10;
+  padding: 12px 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Individual Form Sections ===== */
+.form-section {
+  margin-bottom: 12px;
+}
+
+/* ===== Scrollable Table Wrapper ===== */
+.table-scroll-wrapper {
+  max-height: 400px;
+  overflow: auto;
+  border-top: none;
+  background-color: #fff;
+}
+
+/* ===== Table Container ===== */
+.table-container5 {
+  width: 100%;
+  overflow-x: auto;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ===== Table Styling ===== */
+.styled-table5 {
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  min-width: 1200px;
+  width: 100%;
+}
+
+.styled-table5 th,
+.styled-table5 td {
+  padding: 8px 12px;
+  border: 1px solid #333;
+  text-align: center;
+  white-space: nowrap;
+  background: #fff;
+}
+
+/* ===== Sticky Header Rows ===== */
+.styled-table5 thead tr:nth-child(1) th {
+  position: sticky;
+  top: 0;
+  background: #537c36;
+  font-weight: bold;
+  z-index: 5;
+}
+
+.styled-table5 thead tr:nth-child(2) th {
+  position: sticky;
+  top: 36px;
+  background: #a5d6a7;
+  z-index: 4;
+}
+
+/* ===== Sticky First Columns ===== */
+.styled-table5 th:nth-child(1),
+.styled-table5 td:nth-child(1) {
+  position: sticky;
+  left: 0;
+  background: #e8f5e9;
+  min-width: 80px;
+  z-index: 3;
+  box-shadow: 2px 0 5px -2px rgba(0, 0, 0, 0.1);
+}
+
+.styled-table5 th:nth-child(2),
+.styled-table5 td:nth-child(2) {
+  position: sticky;
+  left: 80px;
+  background: #e8f5e9;
+  min-width: 140px;
+  z-index: 3;
+  box-shadow: 2px 0 5px -2px rgba(0, 0, 0, 0.1);
+}
+
+.styled-table5 th:nth-child(3),
+.styled-table5 td:nth-child(3) {
+  position: sticky;
+  left: 220px;
+  background: #e8f5e9;
+  min-width: 180px;
+  z-index: 3;
+  box-shadow: 2px 0 5px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Sticky Last Column ===== */
+.styled-table5 th:last-child,
+.styled-table5 td:last-child {
+  position: sticky;
+  right: 0;
+  background: #f1f8e9;
+  z-index: 3;
+  box-shadow: -2px 0 5px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* ==============================
+   TABS FOR SERVICE INCLUSION
+============================== */
+.form-actions2 {
+  display: flex;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 12px 20px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 16px;
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+.tab-button.active {
+  border-bottom: 3px solid #0077cc;
+  font-weight: bold;
+  color: #0077cc;
+}
+
+.tab-content {
+  display: none;
+  background: #fff;
+  padding: 20px;
+  border: none;
+  border-radius: 6px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/*ADD BUTTON FOR NEW GROUP*/
+.addgroupbht {
+  background-color: #537c36;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 5px 0;
+  display: inline-block;
+}
+
+/*=====ITNEARY SECTION UNDER GROUP CHART====*/
+.itinerary-section {
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 8px;
+  background: #537c36;
+}
+.date-inputs {
+  margin-bottom: 10px;
+}
+.date-inputs label {
+  margin-right: 15px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th,
+td {
+  border: none;
+  padding: 6px;
+  text-align: center;
+}
+th {
+  background: #cfe2f3;
+}
+td input {
+  width: 95%;
+  padding: 4px;
+}
+.itinerary-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+button[onclick="generateItinerary()"] {
+  background-color: #537c36;
+  color: #fff;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+/*=========GUIDE DETAILS UNDER GROUP CHART========*/
+.guide-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.guide-header p,
+.guide-header h4 {
+  margin: 0 !important;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  line-height: 1;
+}
+
+/* + button inside guide-header */
+.guide-header .add-btn {
+  background-color: #537c36;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0;
+  margin-right: auto;
+}
+
+.guide-header .add-btn:hover {
+  background-color: #476a2f;
+}
+
+/* ===== Guide Form Layout ===== */
+.guide-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 100%;
+}
+
+/* ===== Guide Entry Row ===== */
+.guide-entry {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ===== Input Fields ===== */
+.guide-entry input {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #f9f9f9;
+}
+
+.sl-input {
+  width: 40px;
+  text-align: center;
+}
+
+.flex-1 {
+  flex: 1;
+  max-width: 210px;
+}
+.flex-2 {
+  flex: 2;
+  max-width: 100px;
+}
+
+/* ===== Date Inputs ===== */
+.date-input {
+  flex: 1;
+  max-width: 120px;
+}
+
+/* ===== Action Buttons ===== */
+.action-btn {
+  background-color: #537c36;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.action-btn:hover {
+  background-color: #476a2f;
+}
+
+/* ===== Remove Button ===== */
+.remove-btn {
+  background-color: #cb1414;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 6px 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/*=========VEHICLE DETAILS UNDER GROUP CHART (v4)========*/
+.vech4-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.vech4-header p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.add-btn-v4 {
+  background-color: #537c36;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0;
+  margin-right: auto;
+}
+
+.add-btn-v4:hover {
+  background-color: #537c36;
+}
+
+/* ===== Vehicle Form Layout ===== */
+.vech4-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 100%;
+}
+
+/* ===== Vehicle Entry Row ===== */
+.vech4-entry {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ===== Input Fields ===== */
+.vech4-entry input {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #f9f9f9;
+}
+
+.sl-input-v4 {
+  width: 40px;
+  text-align: center;
+}
+
+.flex-1-v4 {
+  flex: 1;
+}
+
+.flex-2-v4 {
+  flex: 2;
+}
+
+/* ===== Date Inputs (Reduced Width) ===== */
+.date-input-v4 {
+  flex: 1;
+  max-width: 120px;
+}
+
+/* ===== Rate Type Select ===== */
+.rate-type-v4 {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #f9f9f9;
+}
+
+/* ===== Action Buttons ===== */
+.action-btn-v4 {
+  background-color: #537c36;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+/* ===== Remove Button ===== */
+.remove-btn-v4 {
+  background-color: #cb1414;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 6px 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* ==============================
+   RESPONSIVE FIXES
+============================== */
+@media (max-width: 1200px) {
+  .form-topfields {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .form-middlefields {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-topfields {
+    grid-template-columns: 1fr;
+  }
+  .search-box input {
+    min-width: 100%;
+  }
+}
+

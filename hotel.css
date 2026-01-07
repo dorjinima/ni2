@@ -1,0 +1,602 @@
+/* =========================
+   Section Container
+========================= */
+#hotelSection {
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* =========================
+   Form Layout
+========================= */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  flex: 1 1 22%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 14px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+input,
+select {
+  width: 100%;
+  height: 34px;
+  padding: 6px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+/* =========================
+   Department & Room Types
+========================= */
+.qty-room-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 6px;
+  background: #fff;
+  border: none;
+  border-radius: 6px;
+}
+
+.qty-room-wrapper input[type="text"] {
+  width: 250px;
+  height: 34px;
+  padding: 4px 6px;
+  font-size: 14px;
+}
+
+/* =========================
+   Default (Desktops & Laptops)
+========================= */
+.qty-room-wrapper input[type="number"],
+.qty-room-wrapper input[type="email"] {
+  width: 250px;
+  height: 34px;
+  padding: 4px 6px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+/* =========================
+   Large Tablets (1024px and below)
+========================= */
+@media (max-width: 1024px) {
+  .qty-room-wrapper input[type="number"],
+  .qty-room-wrapper input[type="email"] {
+    width: 200px;
+    font-size: 14px;
+  }
+}
+
+/* =========================
+   Small Tablets (768px and below)
+========================= */
+@media (max-width: 768px) {
+  .qty-room-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .qty-room-wrapper input[type="number"],
+  .qty-room-wrapper input[type="email"] {
+    width: 100%;
+    height: 34px;
+    font-size: 13px;
+  }
+}
+
+/* =========================
+   Mobile Phones (480px and below)
+========================= */
+@media (max-width: 480px) {
+  .qty-room-wrapper {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .qty-room-wrapper input[type="number"],
+  .qty-room-wrapper input[type="email"] {
+    width: 100%;
+    height: 32px;
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+}
+
+.remove-room-btn,
+.add-room-btn {
+  width: 28px;
+  height: 28px;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.remove-room-btn {
+  background: none;
+  color: red;
+  font-weight: bold;
+}
+
+.add-room-btn {
+  background-color: transparent;
+  color: #4caf50;
+  font-size: 15px;
+}
+
+/* =========================
+   Room Types Container
+========================= */
+#roomTypesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#roomTypesContainer .qty-room-wrapper {
+  width: 100%;
+  border: transparent;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+
+/* =========================
+   Tourist Type Section
+========================= */
+.rate-controls {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  flex-wrap: nowrap;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+.rate-controls .form-group {
+  flex: 0 0 auto;
+  width: 120px;
+}
+
+.rate-controls .form-group.remarks {
+  width: 180px;
+}
+
+.rate-controls input,
+.rate-controls select {
+  width: 100%;
+  height: 34px;
+  padding: 4px 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.rate-controls .btn-add {
+  align-self: flex-end;
+  height: 32px;
+  padding: 0 12px;
+  font-size: 13px;
+}
+
+/* =========================
+   Rate Section
+========================= */
+#rateTablesContainer table th,
+#rateTablesContainer table td {
+  min-width: 60px;
+  text-align: center;
+}
+
+/* Increase width for EP, CP, MAP, AP sections */
+#rateTablesContainer table th.colored-block-ep,
+#rateTablesContainer table th.colored-block-cp,
+#rateTablesContainer table th.colored-block-map,
+#rateTablesContainer table th.colored-block-ap,
+#rateTablesContainer table td.ep,
+#rateTablesContainer table td.cp,
+#rateTablesContainer table td.map,
+#rateTablesContainer table td.ap {
+  min-width: 90px;
+}
+
+#rateTablesContainer table input {
+  width: 80px;
+}
+
+/* =========================
+   Colored Table Blocks
+========================= */
+.colored-block-ep,
+td.ep {
+  background-color: #dff0d8;
+}
+.colored-block-cp,
+td.cp {
+  background-color: #fcf8e3;
+}
+.colored-block-map,
+td.map {
+  background-color: #f2dede;
+}
+.colored-block-ap,
+td.ap {
+  background-color: #d9edf7;
+}
+
+/* =========================
+   Rate Table
+========================= */
+.rate-table-scroll {
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.rate-table-scroll table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.rate-table-scroll th,
+.rate-table-scroll td {
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.rate-table-scroll thead th {
+  background: #f9f9f9;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* =========================
+   General Table Styling
+========================= */
+.car-table-container {
+  margin-top: 40px;
+}
+
+table {
+  width: 100%;
+  min-width: 200px;
+  margin-top: 20px;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th,
+td {
+  padding: 6px;
+  border: 1px solid #ccc;
+  vertical-align: middle;
+}
+
+thead th {
+  background: #fafafa;
+}
+
+/* =========================
+   Responsive Adjustments
+========================= */
+@media (max-width: 1024px) {
+  .qty-room-wrapper input[type="text"],
+  .qty-room-wrapper input[type="number"],
+  .qty-room-wrapper input[type="email"] {
+    max-width: 280px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .qty-room-wrapper input[type="text"],
+  .qty-room-wrapper input[type="number"],
+  .qty-room-wrapper input[type="email"] {
+    max-width: 100%;
+    height: 32px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .qty-room-wrapper input[type="text"],
+  .qty-room-wrapper input[type="number"],
+  .qty-room-wrapper input[type="email"] {
+    max-width: 100%;
+    height: 30px;
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+}
+
+/* =========================
+   Buttons
+========================= */
+#hotelBtn.guidebhty {
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border: none;
+  background-color: #537c36;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#searchHotelBtn.guidebhty3 {
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 18px;
+  background-color: #537c36;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 40px;
+}
+
+/* save and cancel button */
+/* =========================
+   Form Buttons (Save & Cancel)
+========================= */
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.form-buttons .btn {
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 18px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 40px;
+}
+
+/* ===== Save Button ===== */
+.add-btn6 {
+  background-color: #537c36;
+}
+
+.add-btn6:hover {
+  background-color: #43672c;
+  transform: translateY(-1px);
+}
+
+/* ===== Cancel Button ===== */
+.search-btn6 {
+  background-color: #c0392b;
+}
+
+.remove-room-btn,
+.add-room-btn {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+/* Remove (×) */
+.remove-room-btn {
+  background-color: #fff0f0;
+  color: #c0392b;
+  border: 1px solid #f1c0b8;
+}
+.remove-room-btn:hover {
+  background-color: #c0392b;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Add (+) */
+.add-room-btn {
+  background-color: #eaf6eb;
+  color: #2e7d32;
+  border: 1px solid #b7dfb9;
+}
+.add-room-btn:hover {
+  background-color: #2e7d32;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Keep inputs and icons aligned neatly */
+.qty-room-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* -------- Rate Room and QTY -------- */
+#roomTypesContainer2 {
+  width: 30%;
+  margin-right: auto;
+  margin-right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.qty-room-wrapper2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: transparent;
+  border-radius: 6px;
+  flex-wrap: nowrap;
+}
+
+/* room text on left, number next, then buttons at far right */
+.qty-room-wrapper2 input[type="text"] {
+  flex: 1.2;
+  min-width: 120px;
+}
+
+.qty-room-wrapper2 input[type="number"] {
+  flex: 0 0 80px;
+  min-width: 80px;
+  text-align: center;
+  float: left;
+}
+
+/* keep buttons compact on the right */
+.qty-room-wrapper2 .remove-room-btn,
+.qty-room-wrapper2 .add-room-btn {
+  width: 28px;
+  height: 28px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+/* Remove (×) */
+.qty-room-wrapper2 .remove-room-btn {
+  background-color: #fff0f0;
+  color: #c0392b;
+  border: 1px solid #f1c0b8;
+}
+.qty-room-wrapper2 .remove-room-btn:hover {
+  background-color: #c0392b;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Add (+) */
+.qty-room-wrapper2 .add-room-btn {
+  background-color: #eaf6eb;
+  color: #2e7d32;
+  border: 1px solid #b7dfb9;
+}
+.qty-room-wrapper2 .add-room-btn:hover {
+  background-color: #2e7d32;
+  color: #fff;
+  transform: scale(1.05);
+}
+/* Label styling */
+#roomTypesContainer2 label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
+}
+
+/* responsive fallback: stack on narrow screens */
+@media (max-width: 1024px) {
+  #roomTypesContainer2 {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  #roomTypesContainer2 {
+    width: 100%;
+  }
+  .qty-room-wrapper2 {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .qty-room-wrapper2 input[type="text"],
+  .qty-room-wrapper2 input[type="number"] {
+    width: 100%;
+    margin-right: 0;
+  }
+  .qty-room-wrapper2 .remove-room-btn,
+  .qty-room-wrapper2 .add-room-btn {
+    align-self: flex-end;
+    margin-left: 0;
+    margin-top: 6px;
+  }
+}
+/* =========================
+   Edit Button 
+========================= */
+.edit-btn {
+  background: none !important;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Add to your stylesheet for nice panel/card style */
+.year-chip {
+  display: inline-block;
+  margin-left: 8px;
+  margin-top: 6px;
+  padding: 6px 10px;
+  font-size: 13px;
+  line-height: 1;
+  border-radius: 18px;
+  background: #f3f4f6;
+  color: #111827;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+.year-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(16, 24, 40, 0.06);
+}
+.year-chip.active {
+  background: #0ea5e9;
+  color: #fff;
+  border-color: rgba(14, 165, 233, 0.9);
+}
+.year-panel {
+  margin-top: 8px;
+  margin-left: 6px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+.year-panel .panel-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.year-panel .panel-row {
+  margin-bottom: 8px;
+}
